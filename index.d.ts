@@ -1,8 +1,7 @@
 import * as React from "react";
 import * as PIXI from "pixi.js";
 
-
-declare module "react-pixi-fiber" {
+declare module "b1ncer-react-pixi-fiber" {
   /**
    * Compatibility
    */
@@ -13,16 +12,39 @@ declare module "react-pixi-fiber" {
   // @ts-ignore TS2694
   type InteractionCompatibility = Exclude<keyof typeof PIXI.interaction, number | symbol>;
   type InteractionEvent = string extends InteractionCompatibility
-    // @ts-ignore TS2694
-    ? PIXI.InteractionEvent
-    // @ts-ignore TS2694
-    : PIXI.interaction.InteractionEvent;
+    ? // @ts-ignore TS2694
+      PIXI.InteractionEvent
+    : // @ts-ignore TS2694
+      PIXI.interaction.InteractionEvent;
   // Hardcoded due to the InteractionEventTypes being removed since pixi.js@6.0.0
-  type InteractionPointerEvents = "pointerdown" | "pointercancel" | "pointerup" | "pointertap" | "pointerupoutside" | "pointermove" | "pointerover" | "pointerout";
+  type InteractionPointerEvents =
+    | "pointerdown"
+    | "pointercancel"
+    | "pointerup"
+    | "pointertap"
+    | "pointerupoutside"
+    | "pointermove"
+    | "pointerover"
+    | "pointerout";
   type InteractionTouchEvents = "touchstart" | "touchcancel" | "touchend" | "touchendoutside" | "touchmove" | "tap";
-  type InteractionMouseEvents = "rightdown" | "mousedown" | "rightup" | "mouseup" | "rightclick" | "click" | "rightupoutside" | "mouseupoutside" | "mousemove" | "mouseover" | "mouseout";
+  type InteractionMouseEvents =
+    | "rightdown"
+    | "mousedown"
+    | "rightup"
+    | "mouseup"
+    | "rightclick"
+    | "click"
+    | "rightupoutside"
+    | "mouseupoutside"
+    | "mousemove"
+    | "mouseover"
+    | "mouseout";
   type InteractionPixiEvents = "added" | "removed";
-  type InteractionEventTypes = InteractionPointerEvents | InteractionTouchEvents | InteractionMouseEvents | InteractionPixiEvents;
+  type InteractionEventTypes =
+    | InteractionPointerEvents
+    | InteractionTouchEvents
+    | InteractionMouseEvents
+    | InteractionPixiEvents;
 
   /**
    * Helpers
@@ -211,9 +233,9 @@ declare module "react-pixi-fiber" {
   >;
 
   export type StageRef = {
-    _app: React.RefObject<PIXI.Application>
-    _canvas: React.RefObject<HTMLCanvasElement>
-    props: StageProps,
+    _app: React.RefObject<PIXI.Application>;
+    _canvas: React.RefObject<HTMLCanvasElement>;
+    props: StageProps;
   };
 
   // Type of Stage component.
