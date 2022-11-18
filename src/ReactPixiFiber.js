@@ -148,6 +148,10 @@ export function unhideTextInstance(instance, props) {
   // Noop
 }
 
+export function detachDeletedInstance(instance) {
+  // Noop
+}
+
 export function now() {
   return typeof performance === "object" && typeof performance.now === "function"
     ? () => performance.now()
@@ -189,6 +193,7 @@ const hostConfig = {
   supportsMutation: supportsMutation,
   unhideInstance: unhideInstance,
   unhideTextInstance: unhideTextInstance,
+  detachDeletedInstance: detachDeletedInstance,
 };
 
 // React Pixi Fiber renderer is primary if used without React DOM
